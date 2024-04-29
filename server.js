@@ -1,5 +1,7 @@
 import express, { Router } from "express";
 import expressEjsLayouts from "express-ejs-layouts";
+import router from './server/routes/routes.main.js'
+
 
 const app = express();
 const PORT = 5000 || process.env.PORT;
@@ -16,7 +18,8 @@ app.listen(PORT, () => {
 app.use(expressEjsLayouts);
 app.set("layout", "./layout/main");
 app.set("view engine", "ejs");
-//routes
-app.get("/", (req, res) => {
-  res.render("index");
-});
+
+
+
+// set routes
+app.use('/',router);
